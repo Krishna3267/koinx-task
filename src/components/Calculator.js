@@ -1,6 +1,5 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
-import { TextField } from '@mui/material'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import InputLabel from '@mui/material/InputLabel';
@@ -56,7 +55,7 @@ const Calculator = (props) => {
     //For long term discount 
     useEffect(
         () => {
-            if(capGain > 0 && type == "Long Term"){
+            if(capGain > 0 && type === "Long Term"){
                 const discountValue = parseFloat(capGain*0.5)
                 setDiscount(discountValue)
             }else{
@@ -68,7 +67,7 @@ const Calculator = (props) => {
     //for netgains
     useEffect(
         () => {
-            if(type == "Long Term"){
+            if(type === "Long Term"){
                 const netGainVal = parseFloat(capGain - discount)
                 setNetGain(netGainVal)
             }else{
