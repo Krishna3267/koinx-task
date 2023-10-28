@@ -5,12 +5,13 @@ body{
     font-family: inter;
   }
   
-  .calc-box{
+  .calc-box , .faq-section{
     background-color: white;
     padding: 30px 30px 60px 30px;
     border-radius: 16px;
+    margin-bottom: 5%;
   }
-  .calc-box h2{
+  .calc-box h2, .faq-section h2{
     text-align: center;
     margin-bottom: 5%;
   }
@@ -67,4 +68,16 @@ body{
 
   .net-res{
     color: #0FBA83;
+  }
+
+  .question{
+    font-size: 20px;
+    color: #0B1426;
+    font-weight: 700;
+  }
+
+  .answer{
+    font-size: 16px;
+    color: #3E424A;
+    font-weight: 500;
   }
