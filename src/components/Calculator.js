@@ -105,8 +105,9 @@ const Calculator = (props) => {
      
 
     return (
-        <Box sx={{flexGrow:10}}>
-            <Grid container spacing={2}>
+        <Box className={"calc-box"} sx={{flexGrow:10}}>
+            <h2>Free Crypto Tax Calculator - Australia</h2>
+            <Grid className='calc-grid' container spacing={4}>
                 <Grid item xs = {5}>
                     <FormControl fullWidth disabled sx={{ m: 1, minWidth: 120 }} size="small">
                         <InputLabel id="demo-select-small-label">Financial Year</InputLabel>
@@ -164,7 +165,7 @@ const Calculator = (props) => {
                 </FormControl>
             </Grid>
             <Grid item xs = {5}>
-                <FormControl sx={{ m: 1 }}>
+                <FormControl fullWidth sx={{ m: 1 }}>
                     <InputLabel htmlFor="outlined-adornment-amount">Expenses</InputLabel>
                     <OutlinedInput
                     size='small'
@@ -178,6 +179,7 @@ const Calculator = (props) => {
             </Grid>
             <Grid item xs = {5}>
                 <ToggleButtonGroup
+                fullWidth sx={{ m: 1, minWidth: 120} }
                     size='small'
                         label="Type"
                         color="primary"
@@ -208,8 +210,9 @@ const Calculator = (props) => {
                 </FormControl>
             </Grid>    
             
-            <Grid item xs={5}>
-                <div>Tax Rate</div>
+            <Grid item xs={5} >
+                <div  className='tax-rate'>
+                <div >Tax Rate</div>
                 {incomeRange === 0 && (
                     <div>0%</div>
                 ) }
@@ -225,21 +228,38 @@ const Calculator = (props) => {
                 {incomeRange === 4 && (
                     <div>$51,667 + 45% of excess over $180,000</div>
                 ) }
+                </div>
             </Grid>
                 {
                     type === "Long Term" && capGain > 0 && (
                         <>
                             <Grid item xs={5}>
-                                <div>Capital Gain : {capGain}</div>
+                                <div className="cap-gain">
+                                    <div>Capital Gains amount</div>
+                                    <div>$ {capGain}</div>
+                                </div>
                             </Grid>
                             <Grid item xs={5}>
-                                <div>Discount : {discount}</div>
+                                <div className="discount">
+                                    <div>Discount for long term gains</div>
+                                    <div>$ {discount}</div>
+                                </div>
                             </Grid>
                         </>
                     )
                 }
-                <Grid item xs={5}>Net Gain : {netGain}</Grid>
-                <Grid item xs={5}>Tax : {tax}</Grid>
+                <Grid item xs={5} >
+                    <div className='net-gain'>
+                        <div>Net Capital gains tax amount</div>
+                        <div className='result net-res'>$ {netGain}</div>
+                    </div>
+                </Grid>
+                <Grid item xs={5} >
+                    <div className='tax-pay'>
+                        <div>The tax you need to pay*</div>
+                        <div className='result tax-res'>$ {tax}</div>
+                    </div>
+                </Grid>
             </Grid>
         </Box>
     )
